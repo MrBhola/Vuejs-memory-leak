@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>memory leak</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+    <style>
+        #app {
+            margin: 10px 0px 0px 40px;
+        }
+
+        .choices {
+            width: 300px;
+            margin-top: 10px;
+        }
+
+
+        button {
+            border: 1px solid;
+            border-radius: 4px;
+            padding: 8px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .items {
+            display: flex;
+            align-items: center;
+        }
+
+        .items>div {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h3>Memory Leak demonstration on vue js</h3>
+        <p>Open your chrome and navigate to Chrome Task Manager. Thne Start clicking show and hide button.</p>
+        <p>Keep your eyes on Memory foot print of CodePen Tab on the Task Manager list of process.
+        </p>
+        <p>You will see increase in memory every time you click the show/hide button</p>
+        <p>Even after you stop clicking show/hide memory will not be released</p>
+        <hr>
+        <div class="items">
+            <button v-if="showChoices" @click="hide">Hide</button>
+            <button v-if="!showChoices" @click="show">Show</button>
+            <div> <a href="/no-leak.html">Click here </a> to see how to solve this issue</div>
+        </div>
+        <div v-if="showChoices">
+            <select id="choices-single-default" placeholder="This is a search placeholder"></select>
+        </div>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
